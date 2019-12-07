@@ -33,11 +33,11 @@ func debug_print(sweeper mine.MineSweeper, w int, h int) {
 
 func main() {
     var sweeper mine.MineSweeper
-    width, height := 5, 5
-    sweeper = mine.CreateMatrix(width, height, 0.25)
-    debug_print(sweeper, width, height)
+    const WIDTH, HEIGHT = 5, 5
+    sweeper = mine.CreateMatrix(WIDTH, HEIGHT, 0.25)
+    debug_print(sweeper, WIDTH, HEIGHT)
 
-    display_map(sweeper, width, height)
+    display_map(sweeper, WIDTH, HEIGHT)
     scanner := bufio.NewScanner(os.Stdin)
     fmt.Print("Enter command: (e.g. 0 4)\n> ")
     for scanner.Scan() {
@@ -66,7 +66,7 @@ func main() {
             continue
         }
         f.IsRevealed = true
-        display_map(sweeper, width, height)
+        display_map(sweeper, WIDTH, HEIGHT)
         if f.IsMine {
             fmt.Println("Game over. You suck..")
             break
