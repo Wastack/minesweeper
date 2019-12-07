@@ -19,7 +19,7 @@ func display_map(sweeper mine.MineSweeper, w int, h int) {
     }
 }
 
-func debug_print(sweeper mine.MineSweeper, w int, h int) {
+func _debug_print(sweeper mine.MineSweeper, w int, h int) {
     for i:=0;i<h;i++ {
         for j:=0;j<w;j++{
             field, _ := sweeper.Get(mine.Position{j,i})
@@ -35,7 +35,6 @@ func main() {
     var sweeper mine.MineSweeper
     const WIDTH, HEIGHT = 5, 5
     sweeper = mine.CreateMatrix(WIDTH, HEIGHT, 0.25)
-    debug_print(sweeper, WIDTH, HEIGHT)
 
     display_map(sweeper, WIDTH, HEIGHT)
     scanner := bufio.NewScanner(os.Stdin)
